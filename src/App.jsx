@@ -28,7 +28,7 @@ const TodoProvider = ({ children }) => {
 
   //adding new todo
   const addTodo = (title, description, completion_date) => {
-    const newTodo = { id: Date.now(), title, description, completion_date, isCompleted: false };
+    const newTodo = { id: Date.now(), title, description, completion_date, isCompleted:' false' };
     setTodos([...todos, newTodo]);
   };
 
@@ -52,7 +52,7 @@ const TodoProvider = ({ children }) => {
   // 
   const completeTodo = (id) =>{
     const updatedTodos = todos.map(todo=> {
-      todo.id === id ? {...todo, isCompleted: true}: todo
+      return todo.id === id ? {...todo, isCompleted: (todo.isCompleted=="true"? "false": 'true')}: todo
     })
     setTodos(updatedTodos)
   }

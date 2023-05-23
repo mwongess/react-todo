@@ -1,30 +1,25 @@
 import { useState } from 'react'
 import { useTodoContext } from './App'
-// import './TodoList.css'
 import './App.css'
 
 export const TodoList = () => {
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
-  const [completionDate, seCompletionDate] = useState('')
-
   const { todos, deleteTodo, updateTodo, completeTodo } = useTodoContext()
+  const [isChecked, setIsChecked] = useState(false)
 
   return (
     <>
       <div className='todos'>
         {todos.map(todo => (
-          <div className='todo' key={todo.id}>
-            <input type='checkbox' />
-            <div className='todo-dets'>
+          <div className={todo.isCompleted} key={todo.id}>
+            <input type='checkbox' defaultChecked={isChecked} onChange={() => completeTodo(todo.id)} />
+            <div>
+              <p>Completed: {todo.isCompleted}</p>
               <p>Title: {todo.title} </p>
               <p>Description: {todo.description}</p>
               <p>Completion Date: {todo.completion_date}</p>
             </div>
-            <div className='todo-btns'>
-              <button className='todo-btn' onClick={() => deleteTodo(todo.id)}>
-                Delete
-              </button>
+            <div className='buttons'>
+
               <button
                 onClick={() => {
                   updateTodo(
@@ -36,6 +31,9 @@ export const TodoList = () => {
                 }}
               >
                 Update
+              </button>
+              <button onClick={() => deleteTodo(todo.id)}>
+                Delete
               </button>
             </div>
           </div>

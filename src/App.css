@@ -1,4 +1,4 @@
-.main{
+.main {
   width: 35vw;
 }
 .form {
@@ -18,79 +18,44 @@ button {
 input {
   padding: 12px 24px;
 }
-input:focus{
+input:focus {
   outline: none;
 }
 button {
   height: 2.5rem;
 }
-.todos{
-  text-align: left;
-  display: flex;
-  align-items: center;
-  /* justify-content: space-between; */
-  width: 90%;
-  margin: 24px auto;
-  flex-flow: wrap;
-  flex-wrap: wrap;
-  row-gap: 24px;
-  padding: 24px; 
+.todos {
+  margin-top: 1rem;
+  width: 100%;
 }
-.todo-dets{
-  margin: 0 12px;
-  line-height: 1.6;
+.todo {
+ 
 }
-.todo-dets p{
-  font-size: 16px;
-  color: #04011f;
-  font-weight: 600;
-}
-.disabled{
-  background-color: #e6e3e3;
-}
-.disabled p{
-  color: #ccc;
-}
-.todo-cross{
-  text-decoration: line-through;
-  color: #ddd;
-}
-.todo-dets p span{
-  font-weight: 500;
-  font-size: 16px;
-  color: rgb(82, 81, 81);
-}
-.todo-title{
-  font-size: 24px;
-  margin: 24px 0;
-  color: #04011f;
-}
-.todo-btns{
+/*  */
+.buttons {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  gap:10px;
+}
+.buttons button{
+  display: flex;
   align-items: center;
+  padding: 1rem;
 }
-.todo-btns button{
-  margin-bottom: 10px;
-}
-.todo-btn{
-  padding: 4px;
-  color: #04011f;
-  /* border: 2px solid #04011f; */
-  background: transparent;
+.todo:hover {
   cursor: pointer;
-  border-radius: 4px;
-  box-shadow: 0 2px 0 rgba(0,0,0,0.2);
+  opacity: 0.9;
 }
-.todo{
+.false,.true{
   width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-left: 30px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.7), 0 4px 6px rgba(0,0,0,0.2)
-    ;
-    border-radius: 4px;
-    padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.7), 0 4px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 1rem;
+}
+.true div p{
+  text-decoration: line-through;
 }
