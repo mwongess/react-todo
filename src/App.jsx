@@ -26,25 +26,30 @@ const TodoProvider = ({ children }) => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
+  //adding new todo
   const addTodo = (title, description, completion_date) => {
     const newTodo = { id: Date.now(), title, description, completion_date, isCompleted: false };
     setTodos([...todos, newTodo]);
   };
 
+  // deleting a todo event
   const deleteTodo = (id) => {
     const updatedTodos = todos.filter((todo) => todo.id !== id);
     setTodos(updatedTodos);
     settodoToUpdate({})
   };
 
+  // updating todo
   const updateTodo =  (id, title, description, completion_date)=> {
     const updatedTodos = todos.map((todo) =>
       todo.id === id ? { ...todo, title, description, completion_date } : todo
     );
+// setting old todo to newly updated todo
     setTodos(updatedTodos);
     settodoToUpdate({id,title,description,completion_date})
   };
 
+  // 
   const completeTodo = (id) =>{
     const updatedTodos = todos.map(todo=> {
       todo.id === id ? {...todo, isCompleted: true}: todo
