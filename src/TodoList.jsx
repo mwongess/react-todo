@@ -1,13 +1,12 @@
-import { useState } from "react";
-import { useTodoContext } from "./App";
-import "./TodoList.css";
+import {useTodoContext} from './App'
+import './TodoList.css'
 
 export const TodoList = () => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [completionDate, seCompletionDate] = useState("");
+    const {todos, deleteTodo, updateTodo, completeTodo} = useTodoContext()
 
-  const { todos, deleteTodo, updateTodo, completeTodo } = useTodoContext();
+    const handleUpdateTodo = (id, title, description, completion_date) => { // Call the updateTodo function with the updated values
+        updateTodo(id, title, description, completion_date)
+    }
 
   return (
     <>
