@@ -4,32 +4,45 @@ import "./App.css";
 
 export const TodoForm = () => {
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState('')
-  const [completion_date, seCompletionDate]= useState('')
+  const [description, setDescription] = useState("");
+  const [completion_date, seCompletionDate] = useState("");
+  const [isUpdate, setisUpdate] = useState(false);
 
   const { addTodo } = useTodoContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTodo(title,  description, completion_date);
+    addTodo(title, description, completion_date);
     setTitle("");
+    setisUpdate(true);
   };
 
   return (
     <div className="form">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Title"
-          required
-        />
-        <input type="text" onChange={(e)=> setDescription(e.target.value)} placeholder="Description" />
-        <input type="date" onChange={(e)=>{seCompletionDate(e.target.value)}} />
+      { isUpdate && 
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Title"
+            required
+          />
+          <input
+            type="text"
+            onChange={(e) => setDescription(e.target.value)}
+            placeholder="Description"
+          />
+          <input
+            type="date"
+            onChange={(e) => {
+              seCompletionDate(e.target.value);
+            }}
+          />
 
-        <button type="submit">Add Todo</button>
-      </form>
+          <button type="submit">Add Todo</button>
+        </form>
+      }
     </div>
   );
 };

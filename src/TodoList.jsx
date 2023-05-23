@@ -6,7 +6,6 @@ export const TodoList = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [completionDate, seCompletionDate] = useState("");
-  const [isUpdate, setisUpdate] = useState(false);
 
   const { todos, deleteTodo, updateTodo, completeTodo } = useTodoContext();
 
