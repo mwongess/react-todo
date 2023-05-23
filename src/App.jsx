@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext, createContext } from "react";
 import { TodoForm } from "./TodoForm";
 import { TodoList } from "./TodoList";
+import './App.css'
 
 // Create a context for the todos
 export const TodoContext = createContext();
@@ -61,9 +62,12 @@ const TodoProvider = ({ children }) => {
 const App = () => {
   return (
     <TodoProvider>
+      <div className="main">
       <h1>Todo App</h1>
       <TodoForm />
       <TodoList />
+      </div>
+    
     </TodoProvider>
   );
 };
