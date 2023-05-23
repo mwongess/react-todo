@@ -1,8 +1,9 @@
+.main{
+  width: 35vw;
+}
 .form {
   width: 100%;
-  margin: 24px auto;
   line-height: 1.9;
-  min-width: 400px;
 }
 form {
   display: flex;
@@ -21,13 +22,13 @@ input:focus{
   outline: none;
 }
 button {
-  height: 2rem;
+  height: 2.5rem;
 }
 .todos{
-  /* text-align: left;
+  text-align: left;
   display: flex;
   align-items: center;
-  justify-content: space-between; 
+  /* justify-content: space-between; */
   width: 90%;
   margin: 24px auto;
   flex-flow: wrap;
@@ -84,10 +85,11 @@ button {
   box-shadow: 0 2px 0 rgba(0,0,0,0.2);
 }
 .todo{
+  width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 30px;
+    margin-left: 30px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.7), 0 4px 6px rgba(0,0,0,0.2)
     ;
     border-radius: 4px;

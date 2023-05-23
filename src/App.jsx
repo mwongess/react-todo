@@ -1,7 +1,8 @@
-import { useState, useEffect, useContext, createContext } from 'react'
-import { TodoForm } from './TodoForm'
-import { TodoList } from './TodoList'
+import { useState, useEffect, useContext, createContext } from "react";
+import { TodoForm } from "./TodoForm";
+import { TodoList } from "./TodoList";
 import './App.css'
+
 // Create a context for the todos
 export const TodoContext = createContext()
 
@@ -42,15 +43,15 @@ const TodoProvider = ({ children }) => {
     settodoToUpdate({})
   }
 
-  const updateTodo = (id, title, description, completion_date) => {
+  const updateTodo =  (id, title, description, completion_date)=> {
     // console.log(title,description,id,completion_date)
-    const updatedTodos = todos.map(todo =>
+    const updatedTodos = todos.map((todo) =>
       todo.id === id ? { ...todo, title, description, completion_date } : todo
-    )
-    settodoToUpdate({ id, title, description, completion_date })
+    );
+    settodoToUpdate({id,title,description,completion_date})
 
-    setTodos(updatedTodos)
-  }
+    setTodos(updatedTodos);
+  };
 
   const completeTodo = id => {
     const updatedTodos = todos.map(todo => {
@@ -78,9 +79,11 @@ const TodoProvider = ({ children }) => {
 const App = () => {
   return (
     <TodoProvider>
-      <h1 className='todo-title'>Todo App</h1>
+      <h1>Todo App</h1>
       <TodoForm />
       <TodoList />
+      </div>
+    
     </TodoProvider>
   )
 }
