@@ -6,17 +6,18 @@ export const TodoList = () => {
   const { todos, deleteTodo, updateTodo, completeTodo } = useTodoContext()
   const [isChecked, setIsChecked] = useState(false)
 
+
   return (
     <>
       <div className='todos'>
         {todos.map(todo => (
           <div className={todo.isCompleted} key={todo.id}>
-            <input type='checkbox' defaultChecked={isChecked} onChange={() => completeTodo(todo.id)} />
+            <input type='checkbox' defaultChecked={isChecked} onChange={() => {completeTodo(todo.id)}} />
             <div>
-              <p>Completed: {todo.isCompleted}</p>
               <p>Title: {todo.title} </p>
               <p>Description: {todo.description}</p>
               <p>Completion Date: {todo.completion_date}</p>
+              <h5>Completed: {todo.isCompleted}</h5>
             </div>
             <div className='buttons'>
 
