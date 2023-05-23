@@ -3,12 +3,13 @@ import { useTodoContext } from "./App";
 import "./App.css";
 
 export const TodoForm = () => {
+  // Setting states
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [completion_date, seCompletionDate] = useState("");
   const [isUpdate, setisUpdate] = useState(false);
 
-  const { addTodo, todoToUpdate,updateTodo } = useTodoContext();
+  const { addTodo, todoToUpdate, updateTodo} = useTodoContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,8 +18,9 @@ export const TodoForm = () => {
       setTitle("");
       setDescription("");
       seCompletionDate("");
-    }else{
-      updateTodo(todoToUpdate.id,title, description, completion_date)
+    } else {
+      updateTodo(todoToUpdate.id, title, description, completion_date);
+     
     }
   };
 
@@ -29,7 +31,6 @@ export const TodoForm = () => {
       seCompletionDate(todoToUpdate.completion_date);
       setisUpdate(true);
     }
-    console.log(todoToUpdate);
   }, [todoToUpdate]);
 
   return (

@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext, createContext } from "react";
 import { TodoForm } from "./TodoForm";
 import { TodoList } from "./TodoList";
-import './App.css'
+import "./App.css";
 
 // Create a context for the todos
 export const TodoContext = createContext();
@@ -11,7 +11,7 @@ export const useTodoContext = () => useContext(TodoContext);
 
 const TodoProvider = ({ children }) => {
   const [todos, setTodos] = useState([]);
-  const [todoToUpdate, settodoToUpdate] = useState({})
+  const [todoToUpdate, settodoToUpdate] = useState({});
 
   // Load todos from local storage on component mount
   useEffect(() => {
@@ -26,34 +26,53 @@ const TodoProvider = ({ children }) => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
+  //
   const addTodo = (title, description, completion_date) => {
-    const newTodo = { id: Date.now(), title, description, completion_date, isCompleted: false };
+    const newTodo = {
+      id: Date.now(),
+      title,
+      description,
+      completion_date,
+      isCompleted: false,
+    };
     setTodos([...todos, newTodo]);
   };
-
+  //
   const deleteTodo = (id) => {
     const updatedTodos = todos.filter((todo) => todo.id !== id);
     setTodos(updatedTodos);
-    settodoToUpdate({})
+    settodoToUpdate({});
   };
 
-  const updateTodo =  (id, title, description, completion_date)=> {
+  const updateTodo = (id, title, description, completion_date) => {
     const updatedTodos = todos.map((todo) =>
       todo.id === id ? { ...todo, title, description, completion_date } : todo
     );
     setTodos(updatedTodos);
-    settodoToUpdate({id,title,description,completion_date})
+    location.reload()
+    settodoToUpdate({ id, title, description, completion_date });
+
   };
 
-  const completeTodo = (id) =>{
-    const updatedTodos = todos.map(todo=> {
-      todo.id === id ? {...todo, isCompleted: true}: todo
-    })
-    setTodos(updatedTodos)
-  }
+  const completeTodo = (id) => {
+    const updatedTodos = todos.map((todo) => {
+      return todo.id === id ? { ...todo, isCompleted: true } : todo;
+    });
+    setTodos(updatedTodos);
+  };
 
   return (
-    <TodoContext.Provider value={{ todos, addTodo, deleteTodo, updateTodo, completeTodo ,todoToUpdate}}>
+    <TodoContext.Provider
+      value={{
+        todos,
+        addTodo,
+        deleteTodo,
+        updateTodo,
+        completeTodo,
+        todoToUpdate,
+        settodoToUpdate,
+      }}
+    >
       {children}
     </TodoContext.Provider>
   );
@@ -63,11 +82,10 @@ const App = () => {
   return (
     <TodoProvider>
       <div className="main">
-      <h1>Todo App</h1>
-      <TodoForm />
-      <TodoList />
+        <h1>Todo App</h1>
+        <TodoForm />
+        <TodoList />
       </div>
-    
     </TodoProvider>
   );
 };
