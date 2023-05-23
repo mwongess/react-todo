@@ -1,0 +1,19 @@
+.form {
+  width: 30vw;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+input,
+button {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+input {
+  padding: 0.5rem;
+}
+button {
+  height: 2rem;
+}
