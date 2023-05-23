@@ -13,7 +13,7 @@ export const TodoForm = () => {
     e.preventDefault();
     addTodo(title, description, completion_date);
     setTitle("");
-    setisUpdate(true);
+    setisUpdate();
   };
 
   return (
@@ -31,7 +31,7 @@ export const TodoForm = () => {
 
           <button type="submit">Add Todo</button>
         </form>
-      }
+      
     </div>
   );
 };
