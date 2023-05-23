@@ -1,7 +1,10 @@
+.main{
+  width: 35vw;
+}
 .form {
-  width: 50%;
-  margin: 24px auto;
+  width: 100%;
   line-height: 1.9;
+  margin-top: 1rem;
 }
 form {
   display: flex;
@@ -20,15 +23,14 @@ input:focus{
   outline: none;
 }
 button {
-  height: 2rem;
+  height: 2.5rem;
 }
 .todos{
+  width: 100%;
   text-align: left;
   display: flex;
   align-items: center;
   /* justify-content: space-between; */
-  width: 90%;
-  margin: 24px auto;
   flex-flow: wrap;
   flex-wrap: wrap;
   row-gap: 24px;
@@ -83,10 +85,10 @@ button {
   box-shadow: 0 2px 0 rgba(0,0,0,0.2);
 }
 .todo{
+  width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-left: 30px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.7), 0 4px 6px rgba(0,0,0,0.2)
     ;
     border-radius: 4px;
