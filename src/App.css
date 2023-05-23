@@ -74,7 +74,7 @@ button span{
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.7), 0 4px 6px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   padding: 12px;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 }
 .true{
   opacity: 0.5;
@@ -93,5 +93,19 @@ button span{
   }
   h1{
     font-size: 30px;
+  }
+  input[type=text],input[type=date]{
+    width: 100%;
+  }
+  .true,.false{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .buttons{
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
   }
 }

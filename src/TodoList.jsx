@@ -10,6 +10,7 @@ export const TodoList = () => {
   return (
     <>
       <div className='todos'>
+        <h4>{todos[0] &&' Click on the radio to complete a task!!'}</h4>
         {todos.map(todo => (
           <div className={todo.isCompleted} key={todo.id}>
             <input type='radio'  onChange={() => {completeTodo(todo.id)}} />
