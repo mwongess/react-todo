@@ -5,7 +5,7 @@ import "./App.css";
 export const TodoForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState('')
-  const [completion_date, seCompletionDate] = useState('')
+  const [completion_date, seCompletionDate]= useState('')
 
   const { addTodo } = useTodoContext();
 
@@ -13,6 +13,7 @@ export const TodoForm = () => {
     e.preventDefault();
     addTodo(title, description, completion_date);
     setTitle("");
+    setisUpdate(true);
   };
 
   return (
@@ -25,11 +26,12 @@ export const TodoForm = () => {
           placeholder="Title"
           required
         />
-        <input type="text" onChange={(e) => setDescription(e.target.value)} placeholder="Description" />
-        <input type="date" onChange={(e) => { seCompletionDate(e.target.value) }} />
+        <input type="text" onChange={(e)=> setDescription(e.target.value)} placeholder="Description" />
+        <input type="date" onChange={(e)=>{seCompletionDate(e.target.value)}} />
 
-        <button type="submit">Add Todo</button>
-      </form>
+          <button type="submit">Add Todo</button>
+        </form>
+      }
     </div>
   );
 };
