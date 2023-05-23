@@ -3,7 +3,7 @@ import { useTodoContext } from "./App";
 import "./App.css";
 
 export const TodoForm = () => {
-  // Setting states
+  // usestates
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [completion_date, seCompletionDate] = useState("");
@@ -11,6 +11,7 @@ export const TodoForm = () => {
 
   const { addTodo, todoToUpdate, updateTodo} = useTodoContext();
 
+  //taking in the inputs
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!isUpdate) {
