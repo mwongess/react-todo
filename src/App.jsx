@@ -37,13 +37,11 @@ const TodoProvider = ({ children }) => {
   };
 
   const updateTodo =  (id, title, description, completion_date)=> {
-    // console.log(title,description,id,completion_date)
     const updatedTodos = todos.map((todo) =>
       todo.id === id ? { ...todo, title, description, completion_date } : todo
     );
-    settodoToUpdate({id,title,description,completion_date})
-
     setTodos(updatedTodos);
+    settodoToUpdate({id,title,description,completion_date})
   };
 
   const completeTodo = (id) =>{

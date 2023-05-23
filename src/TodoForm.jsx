@@ -51,6 +51,7 @@ export const TodoForm = () => {
           />
           <input
             type="date"
+            value={completion_date}
             onChange={(e) => {
               seCompletionDate(e.target.value);
             }}
