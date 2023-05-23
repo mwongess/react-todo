@@ -1,7 +1,8 @@
 .form {
-  width: 50%;
+  width: 100%;
   margin: 24px auto;
   line-height: 1.9;
+  min-width: 400px;
 }
 form {
   display: flex;
@@ -23,23 +24,23 @@ button {
   height: 2rem;
 }
 .todos{
-  text-align: left;
+  /* text-align: left;
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
+  justify-content: space-between; 
   width: 90%;
   margin: 24px auto;
   flex-flow: wrap;
   flex-wrap: wrap;
   row-gap: 24px;
-  /* box-shadow: 0 1px 3px rgba(0,0,0,0.7); */
-  /* padding: 24px; */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.7); 
+  padding: 24px; */
 }
-.toto_dets{
+.todo-dets{
   margin: 0 12px;
   line-height: 1.6;
 }
-.toto_dets p{
+.todo-dets p{
   font-size: 16px;
   color: #04011f;
   font-weight: 600;
@@ -50,16 +51,16 @@ button {
 .disabled p{
   color: #ccc;
 }
-.todo_cross{
+.todo-cross{
   text-decoration: line-through;
   color: #ddd;
 }
-.toto_dets p span{
+.todo-dets p span{
   font-weight: 500;
   font-size: 16px;
   color: rgb(82, 81, 81);
 }
-.todo__header{
+.todo-title{
   font-size: 24px;
   margin: 24px 0;
   color: #04011f;
@@ -73,7 +74,7 @@ button {
 .todo-btns button{
   margin-bottom: 10px;
 }
-.todo_btn{
+.todo-btn{
   padding: 4px;
   color: #04011f;
   /* border: 2px solid #04011f; */
@@ -86,7 +87,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-left: 30px;
+    margin-bottom: 30px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.7), 0 4px 6px rgba(0,0,0,0.2)
     ;
     border-radius: 4px;
