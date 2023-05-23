@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTodoContext } from './App'
+import {FaPencilAlt ,FaTrashAlt} from 'react-icons/fa';
 import './App.css'
 
 export const TodoList = () => {
@@ -21,7 +22,7 @@ export const TodoList = () => {
             </div>
             <div className='buttons'>
 
-              <button
+              <button className=''
                 onClick={() => {
                   updateTodo(
                     todo.id,
@@ -31,10 +32,10 @@ export const TodoList = () => {
                   )
                 }}
               >
-                Update
+               <FaPencilAlt/><span> Update</span>
               </button>
-              <button onClick={() => deleteTodo(todo.id)}>
-                Delete
+              <button onClick={() => deleteTodo(todo.id)} className='del'>
+                <FaTrashAlt/><span>Delete</span>
               </button>
             </div>
           </div>

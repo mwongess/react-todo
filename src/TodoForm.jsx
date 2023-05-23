@@ -59,7 +59,7 @@ export const TodoForm = () => {
             }}
           />
 
-          <button type="submit">{isUpdate ? "Update" : "Add"}</button>
+          <button type="submit" className="new-update">{isUpdate ? "Update" : " Add"}</button>
         </form>
       }
     </div>

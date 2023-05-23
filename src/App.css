@@ -1,9 +1,14 @@
 .main {
   width: 35vw;
 }
+h1{
+  text-align: center;
+  /* letter-spacing: 0.35rem; */
+  font-size: 43.2px;
+}
 .form {
   width: 100%;
-  line-height: 1.9;
+  margin-top: 1rem;
 }
 form {
   display: flex;
@@ -28,10 +33,6 @@ button {
   margin-top: 1rem;
   width: 100%;
 }
-.todo {
- 
-}
-/*  */
 .buttons {
   display: flex;
   flex-direction: column;
@@ -42,9 +43,22 @@ button {
   align-items: center;
   padding: 1rem;
 }
+button span{
+  margin-left: 0.5rem;
+}
+.new-update,.update{
+  background-color: #0d6efd;
+  color: #fff;
+  border: none;
+}
+
+.del{
+  color: #fff;
+  border: none;
+  background-color: #dc3545;
+}
 .todo:hover {
   cursor: pointer;
-  opacity: 0.9;
 }
 .false,.true{
   width: 100%;
@@ -56,9 +70,22 @@ button {
   padding: 12px;
   margin-bottom: 1rem;
 }
+.true{
+  opacity: 0.5;
+}
 .true div p{
   text-decoration: line-through;
 }
 .todos h5{
   margin-top: 0.3rem;
+}
+
+@media screen and (max-width: 600px) {
+  .main{
+    width: 100%;
+    padding: 1rem;
+  }
+  h1{
+    font-size: 30px;
+  }
 }

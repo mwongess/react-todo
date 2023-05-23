@@ -68,7 +68,7 @@ const App = () => {
   return (
     <TodoProvider>
       <div className="main">
-      <h1>Todo App</h1>
+      <h1>Binary Bandits Todo App</h1>
       <TodoForm />
       <TodoList />
       </div>
