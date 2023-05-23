@@ -26,8 +26,14 @@ input {
 input:focus {
   outline: none;
 }
+input[type=radio] {
+  border: 0px;
+  width: 1.3rem;
+  height: 1.3rem;
+}
 button {
   height: 2.5rem;
+  font-size: 15px;
 }
 .todos {
   margin-top: 1rem;

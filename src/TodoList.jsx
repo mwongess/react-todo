@@ -5,7 +5,6 @@ import './App.css'
 
 export const TodoList = () => {
   const { todos, deleteTodo, updateTodo, completeTodo } = useTodoContext()
-  const [isChecked, setIsChecked] = useState(false)
 
 
   return (
@@ -13,7 +12,7 @@ export const TodoList = () => {
       <div className='todos'>
         {todos.map(todo => (
           <div className={todo.isCompleted} key={todo.id}>
-            <input type='checkbox' defaultChecked={isChecked} onChange={() => {completeTodo(todo.id)}} />
+            <input type='radio'  onChange={() => {completeTodo(todo.id)}} />
             <div>
               <p>Title: {todo.title} </p>
               <p>Description: {todo.description}</p>

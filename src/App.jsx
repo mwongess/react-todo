@@ -28,7 +28,7 @@ const TodoProvider = ({ children }) => {
 
   //adding new todo
   const addTodo = (title, description, completion_date) => {
-    const newTodo = { id: Date.now(), title, description, completion_date, isCompleted:' false' };
+    const newTodo = { id: Date.now(), title, description, completion_date, isCompleted: ' false' };
     setTodos([...todos, newTodo]);
   };
 
@@ -40,25 +40,25 @@ const TodoProvider = ({ children }) => {
   };
 
   // updating todo
-  const updateTodo =  (id, title, description, completion_date)=> {
+  const updateTodo = (id, title, description, completion_date) => {
     const updatedTodos = todos.map((todo) =>
       todo.id === id ? { ...todo, title, description, completion_date } : todo
     );
-// setting old todo to newly updated todo
+    // setting old todo to newly updated todo
     setTodos(updatedTodos);
-    settodoToUpdate({id,title,description,completion_date})
+    settodoToUpdate({ id, title, description, completion_date })
   };
 
   // 
-  const completeTodo = (id) =>{
-    const updatedTodos = todos.map(todo=> {
-      return todo.id === id ? {...todo, isCompleted: (todo.isCompleted=="true"? "false": 'true')}: todo
+  const completeTodo = (id) => {
+    const updatedTodos = todos.map(todo => {
+      return todo.id === id ? { ...todo, isCompleted: (todo.isCompleted == "true" ? "false" : 'true') } : todo
     })
     setTodos(updatedTodos)
   }
 
   return (
-    <TodoContext.Provider value={{ todos, addTodo, deleteTodo, updateTodo, completeTodo ,todoToUpdate}}>
+    <TodoContext.Provider value={{ todos, addTodo, deleteTodo, updateTodo, completeTodo, todoToUpdate }}>
       {children}
     </TodoContext.Provider>
   )
@@ -68,9 +68,9 @@ const App = () => {
   return (
     <TodoProvider>
       <div className="main">
-      <h1>Binary Bandits Todo App</h1>
-      <TodoForm />
-      <TodoList />
+        <h1>Binary Bandits Todo App</h1>
+        <TodoForm />
+        <TodoList />
       </div>
     </TodoProvider>
   )
