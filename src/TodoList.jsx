@@ -11,34 +11,6 @@ export const TodoList = () => {
 
   return (
     <>
-      <div className="update-form">
-        {
-          <form>
-            <input
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder="Title"
-              required
-            />
-            <input
-              type="text"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              placeholder="Description"
-            />
-            <input
-              type="date"
-              value={completionDate}
-              onChange={(e) => {
-                seCompletionDate(e.target.value);
-              }}
-            />
-
-            <button type="submit">Add Todo</button>
-          </form>
-        }
-      </div>
       <div className="todos">
         {todos.map((todo) => (
           <div className="todo" key={todo.id}>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTodoContext } from "./App";
 import "./App.css";
 
@@ -8,18 +8,33 @@ export const TodoForm = () => {
   const [completion_date, seCompletionDate] = useState("");
   const [isUpdate, setisUpdate] = useState(false);
 
-  const { addTodo } = useTodoContext();
+  const { addTodo, todoToUpdate,updateTodo } = useTodoContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTodo(title, description, completion_date);
-    setTitle("");
-    setisUpdate(true);
+    if (!isUpdate) {
+      addTodo(title, description, completion_date);
+      setTitle("");
+      setDescription("");
+      seCompletionDate("");
+    }else{
+      updateTodo(todoToUpdate.id,title, description, completion_date)
+    }
   };
+
+  useEffect(() => {
+    if (todoToUpdate.title) {
+      setTitle(todoToUpdate.title);
+      setDescription(todoToUpdate.description);
+      seCompletionDate(todoToUpdate.completion_date);
+      setisUpdate(true);
+    }
+    console.log(todoToUpdate);
+  }, [todoToUpdate]);
 
   return (
     <div className="form">
-      { isUpdate && 
+      {
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -30,6 +45,7 @@ export const TodoForm = () => {
           />
           <input
             type="text"
+            value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Description"
           />
@@ -40,7 +56,7 @@ export const TodoForm = () => {
             }}
           />
 
-          <button type="submit">Add Todo</button>
+          <button type="submit">{isUpdate ? "Update" : "Add"}</button>
         </form>
       }
     </div>
